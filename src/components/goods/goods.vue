@@ -42,6 +42,7 @@
       </ul>
     </div>
     <shopcart
+      v-ref:shopcart
       :select-foods="selectFoods"
       :delivery-price="seller.deliveryPrice"
       :min-price="seller.minPrice">
@@ -136,11 +137,19 @@
             height += item.clientHeight;
             this.listHeight.push(height);
           }
+        },
+        _drop(target) {
+          this.$refs.shopcart.drop(target);
         }
       },
       components: {
         shopcart,
         cartcontrol
+      },
+      events: {
+        'cart.add'(target) {
+          this._drop(target);
+        }
       }
     };
 </script>
