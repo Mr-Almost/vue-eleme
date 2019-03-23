@@ -205,6 +205,7 @@
             font-weight: 700
             background: rgb(240, 20, 20)
             box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4)
+            color: #fff
         .price
           display: inline-block
           vertical-align: top

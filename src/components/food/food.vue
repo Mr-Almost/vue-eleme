@@ -129,7 +129,9 @@
       events: {
           'ratingtype.select'(type) {
             this.selectType = type;
-            this.scroll.refresh();
+            this.$nextTick(() => {
+              this.scroll.refresh();
+            });
           },
           'content.toggle'(onlyContent) {
             this.onlyContent = onlyContent;
