@@ -47,7 +47,7 @@
       :delivery-price="seller.deliveryPrice"
       :min-price="seller.minPrice">
     </shopcart>
-    <food :food="selectedFood"></food>
+    <food :food="selectedFood" v-ref:food></food>
   </div>
 </template>
 
@@ -118,11 +118,12 @@
           let el = foodList[index];
           this.foodScroll.scrollToElement(el, 300);
         },
-        selectFood(index, event) {
+        selectFood(food, event) {
           if (!event._constructed) {
             return;
           }
           this.selectedFood = food;
+          this.$refs.food.show();
         },
         _initScroll() {
           this.menuScroll = new BScroll(this.$els.menuWrapper, {
